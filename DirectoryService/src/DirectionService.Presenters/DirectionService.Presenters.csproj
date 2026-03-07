@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DirectionService.Application\DirectionService.Application.csproj" />
+      <ProjectReference Include="..\DirectionService.Contracts\DirectionService.Contracts.csproj" />
+      <ProjectReference Include="..\DirectoryService.Domain\DirectoryService.Domain.csproj" />
+    </ItemGroup>
+
+ 
+
+</Project>
