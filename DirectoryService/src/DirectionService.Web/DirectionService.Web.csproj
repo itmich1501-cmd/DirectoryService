@@ -12,7 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DirectionService.Application\DirectionService.Application.csproj" />
+      <ProjectReference Include="..\DirectionService.Contracts\DirectionService.Contracts.csproj" />
       <ProjectReference Include="..\DirectionService.Presenters\DirectionService.Presenters.csproj" />
+      <ProjectReference Include="..\DirectoryService.Domain\DirectoryService.Domain.csproj" />
     </ItemGroup>
 
 </Project>
