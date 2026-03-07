@@ -1,3 +1,7 @@
+using System.Net.NetworkInformation;
+using CSharpFunctionalExtensions;
+using Shared;
+
 namespace DirectoryService.Domain.Locations;
 
 public record LocationId(Guid Value);
@@ -31,4 +35,35 @@ public class Location
     public DateTime CreatedAt { get; private set; }
 
     public DateTime UpdatedAt { get; private set; }
+
+    public static Result<Location, Error> Create(
+        string name,
+        string address,
+        string timezone,
+        LocationId? locationId = null)
+    {
+        var locationName = LocationName.Create(name);
+        if (locationName.IsFailure)
+        {
+            return locationName.Error;
+        }
+
+        var locationAddress = LocationAddress.Create(address);
+        if (locationAddress.IsFailure)
+        {
+            return locationAddress.Error;
+        }
+
+        var locationTimezone = LocationTimezone.Create(timezone);
+        if (locationTimezone.IsFailure)
+        {
+            return locationTimezone.Error;
+        }
+
+        return new Location(
+            locationId ?? new LocationId(Guid.NewGuid()),
+            locationName.Value,
+            locationAddress.Value,
+            locationTimezone.Value);
+    }
 }

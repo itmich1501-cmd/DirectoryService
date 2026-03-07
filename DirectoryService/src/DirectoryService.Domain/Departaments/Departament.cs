@@ -1,3 +1,7 @@
+using System.Net.NetworkInformation;
+using CSharpFunctionalExtensions;
+using Shared;
+
 namespace DirectoryService.Domain.Departaments;
 
 public record DepartmentId(Guid Value);
@@ -43,7 +47,48 @@ public class Departament
 
     public bool IsActive { get; private set; }
 
+    public IReadOnlyList<DepartmentPosition> Positions => _positions;
+
+    public IReadOnlyList<DepartmentLocation> Locations => _locations;
+
     public DateTime CreatedAt { get; private set; }
 
     public DateTime UpdatedAt { get; private set; }
+
+    public static Result<Departament, Error> Create(
+        string name,
+        string identifier,
+        Guid parentId,
+        DepartmentPath path,
+        short depth,
+        DepartmentId? departmentId = null)
+    {
+        var departmentName = DepartmentName.Create(name);
+        if (departmentName.IsFailure)
+        {
+            return departmentName.Error;
+        }
+
+        return new Departament(
+            departmentId ?? new DepartmentId(Guid.NewGuid()),
+            departmentName.Value,
+            identifier,
+            parentId,
+            path,
+            depth);
+    }
+
+    public UnitResult<Error> AddPosition(DepartmentPosition position)
+    {
+        _positions.Add(position);
+
+        return UnitResult.Success<Error>();
+    }
+
+    public UnitResult<Error> AddLocation(DepartmentLocation location)
+    {
+        _locations.Add(location);
+
+        return UnitResult.Success<Error>();
+    }
 }
