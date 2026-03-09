@@ -5,20 +5,33 @@ namespace DirectoryService.Domain.Locations;
 
 public record LocationAddress
 {
-    private LocationAddress(string name)
+    private LocationAddress(
+        string country,
+        string city,
+        string street,
+        string houseNumber,
+        string postalCode)
     {
-        Name = name;
+        Country = country;
+        City = city;
+        Street = street;
+        HouseNumber = houseNumber;
+        PostalCode = postalCode;
     }
 
-    public string Name { get; }
+    public string Country { get; }
+    public string City { get; }
+    public string Street { get; }
+    public string HouseNumber { get; }
+    public string PostalCode { get; }
 
-    public static Result<LocationAddress, Error> Create(string name)
+    public static Result<LocationAddress, Error> Create(
+        string country,
+        string city,
+        string street,
+        string houseNumber,
+        string postalCode)
     {
-        if (string.IsNullOrWhiteSpace(name))
-        {
-            return Error.Validation("location.address", "Location address is required");
-        }
-
-        return new LocationAddress(name);
+        return new LocationAddress(country, city, street, houseNumber, postalCode);
     }
 }
