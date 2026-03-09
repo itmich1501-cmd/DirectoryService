@@ -9,14 +9,23 @@
     <ItemGroup>
       <PackageReference Include="CSharpFunctionalExtensions"/>
       <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI"/>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\DirectionService.Application\DirectionService.Application.csproj" />
       <ProjectReference Include="..\DirectionService.Contracts\DirectionService.Contracts.csproj" />
+      <ProjectReference Include="..\DirectionService.Infrastructure.Postgres\DirectionService.Infrastructure.Postgres.csproj" />
       <ProjectReference Include="..\DirectionService.Presenters\DirectionService.Presenters.csproj" />
-      <ProjectReference Include="..\DirectoryService.Domain\DirectoryService.Domain.csproj" />
+      <ProjectReference Include="..\DirectionService.Domain\DirectionService.Domain.csproj" />
     </ItemGroup>
 
 </Project>

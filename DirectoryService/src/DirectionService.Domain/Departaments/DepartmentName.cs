@@ -1,7 +1,7 @@
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Departaments;
+namespace DirectionService.Domain.Departaments;
 
 public record DepartmentName
 {
@@ -20,5 +20,10 @@ public record DepartmentName
         }
 
         return new DepartmentName(name);
+    }
+
+    public static DepartmentName FromDatabase(string value)
+    {
+        return new DepartmentName(value);
     }
 }

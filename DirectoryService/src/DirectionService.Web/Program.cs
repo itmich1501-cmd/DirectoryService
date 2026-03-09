@@ -1,6 +1,12 @@
+using DirectionService.Infrastructure.Postgres;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<DepartmentServiceDbContext>(_ =>
+    new DepartmentServiceDbContext(builder.Configuration.GetConnectionString("DepartmentServiceDb")!));
+
 //builder.Services.AddOpenApi();
 
 var app = builder.Build();

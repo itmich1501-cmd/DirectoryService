@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Domain", "src\DirectoryService.Domain\DirectoryService.Domain.csproj", "{71897806-3797-44A8-AD3C-7ED95DBF3A47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectionService.Domain", "src\DirectionService.Domain\DirectionService.Domain.csproj", "{71897806-3797-44A8-AD3C-7ED95DBF3A47}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}"
 EndProject
@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "src\Shared\Shared.csproj", "{47E3C29D-1F3F-425B-8CB8-EEEC10463D67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectionService.Infrastructure.Postgres", "src\DirectionService.Infrastructure.Postgres\DirectionService.Infrastructure.Postgres.csproj", "{C1443561-F9FA-4000-B468-F5BF4D986A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{47E3C29D-1F3F-425B-8CB8-EEEC10463D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E3C29D-1F3F-425B-8CB8-EEEC10463D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E3C29D-1F3F-425B-8CB8-EEEC10463D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1443561-F9FA-4000-B468-F5BF4D986A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1443561-F9FA-4000-B468-F5BF4D986A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1443561-F9FA-4000-B468-F5BF4D986A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1443561-F9FA-4000-B468-F5BF4D986A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{71897806-3797-44A8-AD3C-7ED95DBF3A47} = {4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}
@@ -59,5 +65,6 @@ Global
 		{04B68D88-8C35-47AC-B4F7-308DA781F740} = {4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}
 		{C275F714-25ED-45C1-813B-CDEE4F8830CC} = {4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}
 		{47E3C29D-1F3F-425B-8CB8-EEEC10463D67} = {4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}
+		{C1443561-F9FA-4000-B468-F5BF4D986A7D} = {4DBAFE57-DB8A-4959-BEA3-44D20E1C7678}
 	EndGlobalSection
 EndGlobal

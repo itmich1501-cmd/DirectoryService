@@ -2,7 +2,7 @@ using System.Net.NetworkInformation;
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Locations;
+namespace DirectionService.Domain.Locations;
 
 public record LocationId(Guid Value);
 
@@ -38,7 +38,11 @@ public class Location
 
     public static Result<Location, Error> Create(
         string name,
-        string address,
+        string country,
+        string city,
+        string street,
+        string houseNumber,
+        string postalCode,
         string timezone,
         LocationId? locationId = null)
     {
@@ -48,7 +52,13 @@ public class Location
             return locationName.Error;
         }
 
-        var locationAddress = LocationAddress.Create(address);
+        var locationAddress = LocationAddress.Create(
+            country,
+            city,
+            street,
+            houseNumber,
+            postalCode);
+
         if (locationAddress.IsFailure)
         {
             return locationAddress.Error;

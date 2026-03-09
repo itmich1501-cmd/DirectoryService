@@ -1,10 +1,14 @@
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Departaments;
+namespace DirectionService.Domain.Departaments;
 
 public record DepartmentPath
 {
+    private DepartmentPath()
+    {
+    }
+
     private DepartmentPath(string path)
     {
         Path = path;
@@ -20,5 +24,10 @@ public record DepartmentPath
         }
 
         return new DepartmentPath(path);
+    }
+    
+    public static DepartmentPath FromDatabase(string value)
+    {
+        return new DepartmentPath(value);
     }
 }

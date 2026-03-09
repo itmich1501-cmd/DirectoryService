@@ -2,7 +2,7 @@ using System.Net.NetworkInformation;
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Departaments;
+namespace DirectionService.Domain.Departaments;
 
 public record DepartmentId(Guid Value);
 
@@ -19,7 +19,7 @@ public class Departament
         DepartmentId id,
         DepartmentName name,
         string identifier,
-        Guid parentId,
+        DepartmentId? parentId,
         DepartmentPath path,
         short depth)
     {
@@ -39,7 +39,7 @@ public class Departament
 
     public string Identifier { get; private set; }
 
-    public Guid ParentId { get; private set; }
+    public DepartmentId? ParentId { get; private set; }
 
     public DepartmentPath Path { get; private set; }
 
@@ -48,7 +48,6 @@ public class Departament
     public bool IsActive { get; private set; }
 
     public IReadOnlyList<DepartmentPosition> Positions => _positions;
-
     public IReadOnlyList<DepartmentLocation> Locations => _locations;
 
     public DateTime CreatedAt { get; private set; }
@@ -58,7 +57,7 @@ public class Departament
     public static Result<Departament, Error> Create(
         string name,
         string identifier,
-        Guid parentId,
+        DepartmentId? parentId,
         DepartmentPath path,
         short depth,
         DepartmentId? departmentId = null)
