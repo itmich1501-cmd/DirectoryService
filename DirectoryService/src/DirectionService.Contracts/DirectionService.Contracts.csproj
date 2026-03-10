@@ -10,4 +10,8 @@
     <PackageReference Include="CSharpFunctionalExtensions"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Positions\" />
+  </ItemGroup>
+
 </Project>
