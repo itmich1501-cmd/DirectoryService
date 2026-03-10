@@ -18,7 +18,7 @@ public class DepartmentLocationConfiguration: IEntityTypeConfiguration<Departmen
         builder.Property(v => v.Id)
             .HasConversion(v => v.Value, v => new DepartmentLocationId(v))
             .HasColumnName("id");
-        
+
         builder.Property(v => v.DepartmentId)
             .HasConversion(v => v.Value, v => new DepartmentId(v))
             .HasColumnName("department_id")
@@ -28,7 +28,7 @@ public class DepartmentLocationConfiguration: IEntityTypeConfiguration<Departmen
             .HasConversion(v => v.Value, v => new LocationId(v))
             .HasColumnName("location_id")
             .IsRequired();
-        
+
         builder.HasIndex(v => new { v.DepartmentId, v.LocationId })
             .HasDatabaseName("uk_department_locations_department_id_location_id")
             .IsUnique();
@@ -37,11 +37,11 @@ public class DepartmentLocationConfiguration: IEntityTypeConfiguration<Departmen
             .WithMany(v => v.Locations)
             .HasForeignKey(v => v.DepartmentId)
             .HasConstraintName("fk_department_locations_department_id");
-        
+
         builder.HasOne<Location>()
             .WithMany()
             .HasForeignKey(v => v.LocationId)
             .HasConstraintName("fk_department_locations_location_id");
-        
+
     }
 }
