@@ -14,7 +14,7 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
         builder.Property(v => v.Id)
             .HasConversion(v => v.Value, v => new LocationId(v))
             .HasColumnName("id");
-        
+
         builder.HasKey(v => v.Id).HasName("pk_locations");
 
         builder.Property(v => v.Name)
@@ -44,9 +44,6 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
                 .HasColumnName("postal_code")
                 .IsRequired(false);
         });
-
-        builder.Navigation(v => v.Address)
-            .IsRequired(false);
 
         builder.Property(v => v.Timezone)
             .HasConversion(v => v.Value, v => LocationTimezone.FromDatabase(v))
