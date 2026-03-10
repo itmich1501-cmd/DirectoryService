@@ -22,7 +22,7 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
             .HasColumnName("name")
             .IsRequired();
 
-        builder.OwnsOne(v => v.Address, v =>
+        builder.ComplexProperty(v => v.Address, v =>
         {
             v.Property(v => v.Country)
                 .HasColumnName("country")
@@ -44,6 +44,9 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
                 .HasColumnName("postal_code")
                 .IsRequired(false);
         });
+
+        builder.Navigation(v => v.Address)
+            .IsRequired(false);
 
         builder.Property(v => v.Timezone)
             .HasConversion(v => v.Value, v => LocationTimezone.FromDatabase(v))
