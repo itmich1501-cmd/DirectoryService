@@ -1,3 +1,3 @@
-﻿namespace DirectionService.Contracts.Department;
+﻿namespace DirectionService.Contracts.Departments;
 
 public record CreateDepartmentDto();

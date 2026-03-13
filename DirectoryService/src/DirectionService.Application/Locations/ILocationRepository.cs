@@ -1,8 +1,10 @@
-﻿using DirectionService.Domain.Locations;
+using CSharpFunctionalExtensions;
+using DirectionService.Domain.Locations;
+using Shared;
 
 namespace DirectionService.Application.Locations;
 
-public class ILocationRepository
+public interface ILocationRepository
 {
-    Task<Guid> AddAsync(Location location, CancellationToken cancellationToken);
+    Task<UnitResult<Error>> Add(Location location, CancellationToken cancellationToken);
 }

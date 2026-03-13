@@ -1,4 +1,5 @@
 using DirectionService.Domain.Departaments;
+using DirectionService.Domain.Locations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
 using Microsoft.Extensions.Logging;
@@ -29,6 +30,8 @@ public class DepartmentServiceDbContext : DbContext
     }
 
     public DbSet<Departament> Departaments => Set<Departament>();
+
+    public DbSet<Location> Locations => Set<Location>();
 
     private ILoggerFactory CreateLoggerFactory() =>
         LoggerFactory.Create(builder => { builder.AddConsole(); });

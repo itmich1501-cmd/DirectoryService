@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <Folder Include="Departments\" />
+      <Folder Include="Locations\Queries\" />
       <Folder Include="Positions\" />
     </ItemGroup>
 
