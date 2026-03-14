@@ -2,7 +2,7 @@ using System.Net.NetworkInformation;
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Locations;
+namespace DirectionService.Domain.Locations;
 
 public record LocationId(Guid Value);
 

@@ -1,8 +1,8 @@
 using CSharpFunctionalExtensions;
-using DirectoryService.Domain.Departaments;
+using DirectionService.Domain.Departaments;
 using Shared;
 
-namespace DirectoryService.Domain.Locations;
+namespace DirectionService.Domain.Locations;
 
 public record LocationTimezone
 {
@@ -20,6 +20,11 @@ public record LocationTimezone
             return Error.Validation("location.timezone", "Location timezone is required");
         }
 
+        return new LocationTimezone(value);
+    }
+
+    public static LocationTimezone FromDatabase(string value)
+    {
         return new LocationTimezone(value);
     }
 }

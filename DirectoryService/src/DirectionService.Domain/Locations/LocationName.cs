@@ -1,7 +1,7 @@
 using CSharpFunctionalExtensions;
 using Shared;
 
-namespace DirectoryService.Domain.Locations;
+namespace DirectionService.Domain.Locations;
 
 public record LocationName
 {
@@ -20,5 +20,10 @@ public record LocationName
         }
 
         return new LocationName(name);
+    }
+
+    public static LocationName FromDatabase(string value)
+    {
+        return new LocationName(value);
     }
 }
