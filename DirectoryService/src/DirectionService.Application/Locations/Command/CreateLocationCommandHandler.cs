@@ -2,11 +2,12 @@ using CSharpFunctionalExtensions;
 using DirectionService.Domain.Locations;
 using FluentValidation;
 using Shared;
+using Shared.Abstractions;
 using Shared.Extensions;
 
 namespace DirectionService.Application.Locations.Command;
 
-public class CreateLocationCommandHandler
+public class CreateLocationCommandHandler : ICommandHandler<Guid, CreateLocationCommand>
 {
     private readonly ILocationRepository _locationRepository;
     private readonly IValidator<CreateLocationCommand> _validator;

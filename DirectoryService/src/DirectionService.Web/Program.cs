@@ -1,8 +1,14 @@
+using DirectionService.Application;
+using DirectionService.Application.Locations;
 using DirectionService.Infrastructure.Postgres;
+using DirectionService.Infrastructure.Postgres.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddApplication();
+
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 
 builder.Services.AddScoped<DepartmentServiceDbContext>(_ =>
     new DepartmentServiceDbContext(builder.Configuration.GetConnectionString("DepartmentServiceDb")!));

@@ -9,6 +9,7 @@
     <ItemGroup>
         <PackageReference Include="CSharpFunctionalExtensions"/>
         <PackageReference Include="FluentValidation" />
+        <PackageReference Include="Scrutor" />
     </ItemGroup>
 
     <ItemGroup>
