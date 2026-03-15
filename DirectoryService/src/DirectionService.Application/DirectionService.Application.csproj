@@ -8,11 +8,19 @@
 
     <ItemGroup>
         <PackageReference Include="CSharpFunctionalExtensions"/>
+        <PackageReference Include="FluentValidation" />
+        <PackageReference Include="Scrutor" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\DirectionService.Contracts\DirectionService.Contracts.csproj" />
       <ProjectReference Include="..\DirectionService.Domain\DirectionService.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Departments\" />
+      <Folder Include="Locations\Queries\" />
+      <Folder Include="Positions\" />
     </ItemGroup>
 
 </Project>

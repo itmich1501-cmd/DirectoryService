@@ -22,9 +22,4 @@ public record LocationTimezone
 
         return new LocationTimezone(value);
     }
-
-    public static LocationTimezone FromDatabase(string value)
-    {
-        return new LocationTimezone(value);
-    }
 }

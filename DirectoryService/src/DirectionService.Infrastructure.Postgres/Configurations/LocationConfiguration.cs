@@ -18,7 +18,7 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
         builder.HasKey(v => v.Id).HasName("pk_locations");
 
         builder.Property(v => v.Name)
-            .HasConversion(v => v.Name, v => LocationName.FromDatabase(v))
+            .HasConversion(v => v.Name, v => LocationName.Create(v).Value)
             .HasColumnName("name")
             .IsRequired();
 
@@ -46,7 +46,7 @@ public class LocationConfiguration : IEntityTypeConfiguration<Location>
         });
 
         builder.Property(v => v.Timezone)
-            .HasConversion(v => v.Value, v => LocationTimezone.FromDatabase(v))
+            .HasConversion(v => v.Value, v => LocationTimezone.Create(v).Value)
             .HasColumnName("timezone")
             .IsRequired();
 

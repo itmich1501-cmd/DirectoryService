@@ -10,4 +10,9 @@
     <PackageReference Include="CSharpFunctionalExtensions"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Locations\Responses\" />
+    <Folder Include="Positions\" />
+  </ItemGroup>
+
 </Project>

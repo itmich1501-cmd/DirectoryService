@@ -21,9 +21,4 @@ public record DepartmentName
 
         return new DepartmentName(name);
     }
-
-    public static DepartmentName FromDatabase(string value)
-    {
-        return new DepartmentName(value);
-    }
 }
