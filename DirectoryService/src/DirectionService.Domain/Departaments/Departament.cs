@@ -18,7 +18,7 @@ public class Departament
     public Departament(
         DepartmentId id,
         DepartmentName name,
-        string identifier,
+        DepartmentIdentifier identifier,
         DepartmentId? parentId,
         DepartmentPath path,
         short depth)
@@ -37,7 +37,7 @@ public class Departament
 
     public DepartmentName Name { get; private set; }
 
-    public string Identifier { get; private set; }
+    public DepartmentIdentifier Identifier { get; private set; }
 
     public DepartmentId? ParentId { get; private set; }
 
@@ -56,7 +56,7 @@ public class Departament
 
     public static Result<Departament, Error> Create(
         string name,
-        string identifier,
+        DepartmentIdentifier identifier,
         DepartmentId? parentId,
         DepartmentPath path,
         short depth,

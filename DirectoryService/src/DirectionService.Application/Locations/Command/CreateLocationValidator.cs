@@ -6,7 +6,7 @@ public class CreateLocationValidator : AbstractValidator<CreateLocationCommand>
 {
     public CreateLocationValidator()
     {
-        RuleFor(x => x.Name)
+        RuleFor(x => x.Location.Name)
             .NotEmpty().WithMessage("Название не может быть пустым.")
             .MaximumLength(5000).WithMessage("Текст не валидный");
     }

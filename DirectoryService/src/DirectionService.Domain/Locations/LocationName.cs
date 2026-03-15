@@ -21,9 +21,4 @@ public record LocationName
 
         return new LocationName(name);
     }
-
-    public static LocationName FromDatabase(string value)
-    {
-        return new LocationName(value);
-    }
 }

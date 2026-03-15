@@ -25,9 +25,4 @@ public record DepartmentPath
 
         return new DepartmentPath(path);
     }
-    
-    public static DepartmentPath FromDatabase(string value)
-    {
-        return new DepartmentPath(value);
-    }
 }

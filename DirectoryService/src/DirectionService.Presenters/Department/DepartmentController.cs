@@ -22,14 +22,7 @@ public class DepartmentController : ControllerBase
         [FromBody] CreateLocationRequest request,
         CancellationToken cancellationToken)
     {
-        var command = new CreateLocationCommand(
-            request.Name,
-            request.Address.Country,
-            request.Address.City,
-            request.Address.Street,
-            request.Address.HouseNumber,
-            request.Address.PostalCode,
-            request.TimeZone);
+        var command = new CreateLocationCommand(request);
 
         var result = await commandHandler.Handle(command, cancellationToken);
 

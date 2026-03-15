@@ -2,6 +2,8 @@ using DirectionService.Application;
 using DirectionService.Application.Locations;
 using DirectionService.Infrastructure.Postgres;
 using DirectionService.Infrastructure.Postgres.Repositories;
+using DirectionService.Web.Middlewares;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +13,13 @@ builder.Services.AddApplication();
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 
 builder.Services.AddScoped<DepartmentServiceDbContext>(_ =>
-    new DepartmentServiceDbContext(builder.Configuration.GetConnectionString("DepartmentServiceDb")!));
+    new DepartmentServiceDbContext(builder.Configuration.GetConnectionString(ConnectionStrings.DEPARTMENT_SERVICE_DB)!));
 
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseExceptionMiddleware();
 
 if (app.Environment.IsDevelopment())
 {

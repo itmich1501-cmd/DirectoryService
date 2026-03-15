@@ -20,12 +20,15 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<Departament>
         builder.Property(v => v.Name)
             .HasConversion(
                 x => x.Name,
-                x => DepartmentName.FromDatabase(x))
+                x => DepartmentName.Create(x).Value)
             .HasColumnName("name")
             .HasMaxLength(150)
             .IsRequired();
 
         builder.Property(v => v.Identifier)
+            .HasConversion(
+                x => x.Value,
+                x => DepartmentIdentifier.Create(x).Value)
             .HasColumnName("identifier")
             .HasMaxLength(150)
             .IsRequired();
@@ -38,7 +41,7 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<Departament>
         builder.Property(v => v.Path)
             .HasConversion(
                 v => v.Path,
-                v => DepartmentPath.FromDatabase(v))
+                v => DepartmentPath.Create(v).Value)
             .HasColumnName("path")
             .IsRequired(false);
 

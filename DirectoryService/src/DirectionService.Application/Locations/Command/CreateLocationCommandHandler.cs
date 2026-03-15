@@ -29,13 +29,13 @@ public class CreateLocationCommandHandler : ICommandHandler<Guid, CreateLocation
         }
 
         var locationResult = Location.Create(
-            name: command.Name,
-            country: command.Country,
-            city: command.City,
-            street: command.Street,
-            houseNumber: command.HouseNumber,
-            postalCode: command.PostalCode,
-            timezone: command.TimeZone);
+            name: command.Location.Name,
+            country: command.Location.Address.Country,
+            city: command.Location.Address.City,
+            street: command.Location.Address.Street,
+            houseNumber: command.Location.Address.HouseNumber,
+            postalCode: command.Location.Address.PostalCode,
+            timezone: command.Location.TimeZone);
 
         if (locationResult.IsFailure)
         {
